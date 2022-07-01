@@ -10,7 +10,7 @@ set record="+Sent Mail"
 # https://www.neomutt.org/guide/reference search sleep_time for additional info
 set sleep_time=0 # be faster
 set beep=no # no beep sound
-set editor="/Applications/MacVim.app/Contents/MacOS/Vim -c 'set tw=74' -c 'set wrap'"
+set editor="nano"
 auto_view text/html
 set sort=reverse-date   # default sorting by date
 # When sorting by threads, this variable controls how threads are sorted
