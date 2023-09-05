@@ -220,7 +220,7 @@ bindsym $mod+a exec gnome-terminal -e alsamixer # launch alsa mixer (mod+a)
 bindsym $mod+e exec gnome-terminal -e neomutt # launch e-mail clent (mod+e)
 bindsym $mod+g exec gnome-terminal -e amfora # launch amfora (mod+g)
 bindsym $mod+Shift+a exec gnome-terminal -e ani-cli
-bindsym $mod+c exec cinny # launch cinny (mod-c)
+bindsym $mod+c exec element-desktop # launch element ($mod+c)
 bindsym $mod+shift+c exec signal-desktop # launch signal (mod-shift-c)
 bindsym $mod+shift+v exec discord # launch discord (mod-shift-v)
 bindsym $mod+shift+n exec notion-app # launch notion (mod-shift-n)
@@ -230,6 +230,10 @@ exec sh -c "rclone --vfs-cache-mode writes mount cloud: ~/cloud"
 exec sh -c "kanshi --config /home/koyu/.config/kanshi/config &!"
 exec signal-desktop --start-in-tray
 exec mullvad-vpn
+exec element-desktop --hidden
+
+# notifications
+exec swaync
 
 # lock on suspend
 exec swayidle -w \

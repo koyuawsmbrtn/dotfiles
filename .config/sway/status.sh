@@ -20,6 +20,7 @@ np="$(playerctl -p spotifyd metadata xesam:artist) – $(playerctl -p spotifyd m
 battery="🔋"
 if (( capacity < 11 )); then
   battery="🪫"
+  battery_status="Battery low! $capacity%"
 fi
 if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ]]; then
   battery="🗲"
@@ -27,6 +28,11 @@ fi
 if [[ "$(cat /sys/class/power_supply/BAT1/status)" == "Charging" ]]; then
   battery="🗲"
   battery_status="$(cat /sys/class/power_supply/BAT1/status) $capacity%"
+fi
+
+if [[ "$capacity" == "100" ]]; then
+  battery="🔋"
+  battery_status="Full $capacity%"
 fi
 
 # Emojis and characters for the status bar
