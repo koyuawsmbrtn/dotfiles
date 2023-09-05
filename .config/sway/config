@@ -11,7 +11,7 @@ set $term gnome-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run -i --tb='#2222233' --tf='#bbbbbb' --fb='#2222233' --nb='#222233' --nf='#bbbbbb' --hb='#bbbbbb' --hf='#222233' --fb='#222233' -p '' -H 23
+set $menu bemenu-run -i --tb='#fbbd1a' --tf='#000000' --fb='#fbbd1a' --nb='#fbbd1a' --nf='#000000' --hb='#000000' --hf='#fbbd1a' --fb='#fbbd1a' -p '' -H 23
 
 ### Output configuration
 #
@@ -59,7 +59,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -84,6 +84,10 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     bindsym $mod+Shift+down move down
     bindsym $mod+Shift+up move up
     bindsym $mod+Shift+right move right
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
 #
 # Workspaces:
 #
@@ -117,7 +121,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+c splith
+    bindsym $mod+h splith
     bindsym $mod+v splitv
 
     # Make the current focus fullscreen
@@ -174,8 +178,8 @@ bindsym $mod+r mode "resize"
 #
 #    colors {
 #        statusline #ffffff
-#        background #222233
-#        inactive_workspace #22223300 #22223300 #5c5c5c
+#        background #fbbd1a
+#        inactive_workspace #fbbd1a00 #fbbd1a00 #5c5c5c
 #    }
 #}
 
@@ -199,20 +203,33 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
+# brightness control
+bindsym XF86MonBrightnessUp   exec "light -A 10 && light -O"
+bindsym XF86MonBrightnessDown exec "light -U 10 && light -O"
+
+# media control
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # app launchers
-bindsym $mod+b exec brave
-bindsym $mod+t exec telegram-desktop # launch telegram (mod+t)
+bindsym $mod+b exec firefox
 bindsym $mod+m exec gnome-terminal -e spotify-client # launch spotify (mod+m)
 bindsym $mod+n exec gnome-terminal -e nmtui # launch networkmanager config tool (mod+n)
 bindsym $mod+a exec gnome-terminal -e alsamixer # launch alsa mixer (mod+a)
-bindsym $mod+h exec gnome-terminal -e htop # launch htop (mod+h)
 bindsym $mod+e exec gnome-terminal -e neomutt # launch e-mail clent (mod+e)
 bindsym $mod+g exec gnome-terminal -e amfora # launch amfora (mod+g)
 bindsym $mod+Shift+a exec gnome-terminal -e ani-cli
+bindsym $mod+c exec cinny # launch cinny (mod-c)
+bindsym $mod+shift+c exec signal-desktop # launch signal (mod-shift-c)
+bindsym $mod+shift+v exec discord # launch discord (mod-shift-v)
+bindsym $mod+shift+n exec notion-app # launch notion (mod-shift-n)
 
 # autostart
-exec telegram-desktop -startintray
-exec sh -c "rclone --vfs-cache-mode writes mount onedrive: ~/data"
+exec sh -c "rclone --vfs-cache-mode writes mount cloud: ~/cloud"
+exec sh -c "kanshi --config /home/koyu/.config/kanshi/config &!"
+exec signal-desktop --start-in-tray
+exec mullvad-vpn
 
 # lock on suspend
 exec swayidle -w \
@@ -228,9 +245,9 @@ bar {
     status_command while ~/.config/sway/status.sh; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background #222233
-        inactive_workspace #22223300 #22223300 #5c5c5c
+        statusline #000000
+        background #fbbd1a
+        inactive_workspace #fbbd1a00 #fbbd1a00 #5c5c5c
     }
 
     font pango:DejaVu Sans Mono 10
@@ -242,8 +259,8 @@ seat * hide_cursor 3000
 # shutdown and reboot bindsyms
 # you have to press mod+shift so you
 # don't power down your machine by accident
-bindsym $mod+Shift+F1 exec sudo poweroff # shutdown
-bindsym $mod+Shift+F2 exec sudo reboot # reboot
+bindsym $mod+Shift+F1 exec sudo /sbin/poweroff # shutdown
+bindsym $mod+Shift+F2 exec sudo /sbin/reboot # reboot
 
 # screenshot
 bindsym $mod+shift+s exec grim -g "$(slurp -d)" - | wl-copy
