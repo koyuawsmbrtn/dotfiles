@@ -18,6 +18,9 @@ battery_status="$(cat /sys/class/power_supply/BAT0/status) $capacity%"
 np="$(playerctl -p spotifyd metadata xesam:artist) – $(playerctl -p spotifyd metadata xesam:title)"
 
 battery="🔋"
+if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Not charging" ]]; then
+  battery_status="Discharging $capacity%"
+fi
 if (( capacity < 11 )); then
   battery="🪫"
   battery_status="Battery low! $capacity%"
