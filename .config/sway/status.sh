@@ -27,6 +27,7 @@ if (( capacity < 11 )); then
 fi
 if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ]]; then
   battery="🗲"
+  battery_status="$(cat /sys/class/power_supply/BAT0/status) $capacity%"
 fi
 if [[ "$(cat /sys/class/power_supply/BAT1/status)" == "Charging" ]]; then
   battery="🗲"
