@@ -231,6 +231,7 @@ exec sh -c "kanshi --config /home/koyu/.config/kanshi/config &!"
 exec mullvad-vpn
 exec element-desktop --hidden
 exec telegram-desktop -startintray
+exec premid
 
 # notifications
 exec swaync
