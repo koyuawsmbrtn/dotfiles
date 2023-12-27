@@ -213,7 +213,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # app launchers
-bindsym $mod+b exec google-chrome-stable --force-dark-mode # launch chrome (mod+b)
+bindsym $mod+b exec google-chrome-stable # launch chrome (mod+b)
 bindsym $mod+m exec gnome-terminal -e spotify-client # launch spotify (mod+m)
 bindsym $mod+n exec gnome-terminal -e nmtui # launch networkmanager config tool (mod+n)
 bindsym $mod+a exec gnome-terminal -e alsamixer # launch alsa mixer (mod+a)
