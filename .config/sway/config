@@ -15,8 +15,8 @@ set $menu bemenu-run -i --tb='#fbbd1a' --tf='#000000' --fb='#fbbd1a' --nb='#fbbd
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.bg.jpg fill
+#output * bg ~/.bg.jpg fill
+exec mpvpaper -o "no-audio --loop" "*" ~/.bg.mp4
 #
 # Example configuration:
 #
@@ -213,7 +213,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # app launchers
-bindsym $mod+b exec firefox
+bindsym $mod+b exec google-chrome-stable --force-dark-mode # launch chrome (mod+b)
 bindsym $mod+m exec gnome-terminal -e spotify-client # launch spotify (mod+m)
 bindsym $mod+n exec gnome-terminal -e nmtui # launch networkmanager config tool (mod+n)
 bindsym $mod+a exec gnome-terminal -e alsamixer # launch alsa mixer (mod+a)
@@ -221,16 +221,16 @@ bindsym $mod+e exec gnome-terminal -e neomutt # launch e-mail clent (mod+e)
 bindsym $mod+g exec gnome-terminal -e amfora # launch amfora (mod+g)
 bindsym $mod+Shift+a exec gnome-terminal -e ani-cli
 bindsym $mod+c exec element-desktop # launch element ($mod+c)
-bindsym $mod+shift+c exec signal-desktop # launch signal (mod-shift-c)
-bindsym $mod+shift+v exec discord # launch discord (mod-shift-v)
-bindsym $mod+shift+n exec notion-app # launch notion (mod-shift-n)
+bindsym $mod+shift+v exec discord # launch discord (mod+shift+v)
+bindsym $mod+shift+n exec notion-app # launch notion (mod+shift+n)
+bindsym $mod+t exec telegram-desktop # launch telegram (mod+t)
 
 # autostart
-exec sh -c "rclone --vfs-cache-mode writes mount cloud: ~/cloud"
+exec sh -c dropbox
 exec sh -c "kanshi --config /home/koyu/.config/kanshi/config &!"
-exec signal-desktop --start-in-tray
 exec mullvad-vpn
 exec element-desktop --hidden
+exec telegram-desktop -startintray
 
 # notifications
 exec swaync
@@ -263,8 +263,8 @@ seat * hide_cursor 3000
 # shutdown and reboot bindsyms
 # you have to press mod+shift so you
 # don't power down your machine by accident
-bindsym $mod+Shift+F1 exec sudo /sbin/poweroff # shutdown
-bindsym $mod+Shift+F2 exec sudo /sbin/reboot # reboot
+bindsym $mod+Shift+F1 exec poweroff # shutdown
+bindsym $mod+Shift+F2 exec reboot # reboot
 
 # screenshot
 bindsym $mod+shift+s exec grim -g "$(slurp -d)" - | wl-copy

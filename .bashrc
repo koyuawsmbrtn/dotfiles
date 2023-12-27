@@ -26,3 +26,6 @@ export PATH=~/.local/bin:$PATH
 
 # ls options
 alias ls="ls --group-directories-first --color"
+
+# vi
+alias vi=vim
