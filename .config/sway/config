@@ -225,12 +225,13 @@ bindsym $mod+n exec gnome-terminal -e nmtui --name "Network configuration" # lau
 bindsym $mod+a exec gnome-terminal -e alsamixer --name "Audio mixer" # launch alsa mixer (mod+a)
 bindsym $mod+e exec gnome-terminal -e neomutt --name "neomutt" # launch e-mail clent (mod+e)
 bindsym $mod+g exec gnome-terminal -e amfora --name "amfora" # launch amfora (mod+g)
-bindsym $mod+Shift+a exec gnome-terminal -e ani-cli --name "ani-cli" # launch ani-cli (mod+shift+a)
+bindsym $mod+shift+a exec gnome-terminal -e ani-cli --name "ani-cli" # launch ani-cli (mod+shift+a)
 bindsym $mod+c exec gnome-terminal -e gomuks --name "gomuks" # launch element ($mod+c)
 bindsym $mod+shift+v exec discord # launch discord (mod+shift+v)
 bindsym $mod+shift+n exec notion-app # launch notion (mod+shift+n)
 bindsym $mod+t exec telegram-desktop # launch telegram (mod+t)
 bindsym ctrl+alt+delete exec gnome-terminal -e btop --name "System resources" # launch btop
+bindsym $mod+shift+b exec gnome-terminal -e tuisky --name "Bluesky" # launch the tuisky bluesky client
 
 # autostart
 exec sh -c "kanshi --config /home/koyu/.config/kanshi/config &!"
