@@ -32,25 +32,35 @@ repeatString(){
 }
 
 # Returns the battery status: "Full", "Discharging", or "Charging".
+batteries=$(expr $(ls /sys/class/power_supply/ | wc -l) - 1)
 capacity=$(expr $(expr $(expr $(cat /sys/class/power_supply/BAT0/capacity) + $(cat /sys/class/power_supply/BAT1/capacity)) / 2) + 1)
+if (( batteries < 2 )); then
+  capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+fi
 if (( capacity > 100 )); then
   capacity=100
 fi
-battery_status="$(cat /sys/class/power_supply/BAT1/status) $capacity%"
+if (( batteries > 1 )); then
+  battery_status="$(cat /sys/class/power_supply/BAT1/status) $capacity%"
+fi
 
 # Currently playing Song
 np="$(playerctl -p spotify metadata xesam:artist) – $(playerctl -p spotify metadata xesam:title)"
 
-battery="🔋"
-battery=$(repeatString '🔋' $(echo $(ls /sys/class/power_supply/ | wc -l) - 1 | bc))
+battery=$(repeatString '🔋' $batteries)
 
 if (( capacity < 11 )); then
   battery="🪫"
   battery_status="Battery low! $capacity%"
 fi
 
-if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Discharging" && "$(cat /sys/class/power_supply/BAT1/status)" == "Not charging" ]]; then
-  battery=$(repeatString '🔋' $(echo $(ls /sys/class/power_supply/ | wc -l) - 1 | bc))
+if (( batteries > 1 )); then
+  if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Discharging" && "$(cat /sys/class/power_supply/BAT1/status)" == "Not charging" ]]; then
+    battery=$(repeatString '🔋' $batteries)
+    battery_status="Discharging $capacity%"
+  fi
+else
+  battery=$(repeatString '🔋' $batteries)
   battery_status="Discharging $capacity%"
 fi
 
@@ -58,13 +68,15 @@ if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ]]; then
   battery="🗲"
   battery_status="Charging $capacity%"
 fi
-if [[ "$(cat /sys/class/power_supply/BAT1/status)" == "Charging" ]]; then
-  battery="🗲"
-  battery_status="$(cat /sys/class/power_supply/BAT1/status) $capacity%"
+if (( batteries > 1)); then
+  if [[ "$(cat /sys/class/power_supply/BAT1/status)" == "Charging" ]]; then
+    battery="🗲"
+    battery_status="$(cat /sys/class/power_supply/BAT1/status) $capacity%"
+  fi
 fi
 
 if [[ "$capacity" == "100" ]]; then
-  battery=$(repeatString '🔋' $(echo $(ls /sys/class/power_supply/ | wc -l) - 1 | bc))
+  battery=$(repeatString '🔋' $batteries)
   battery_status="Full $capacity%"
 fi
 
