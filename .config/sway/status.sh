@@ -12,22 +12,26 @@ capacity=$(expr $(expr $(expr $(cat /sys/class/power_supply/BAT0/capacity) + $(c
 if (( capacity > 100 )); then
   capacity=100
 fi
-battery_status="$(cat /sys/class/power_supply/BAT0/status) $capacity%"
+battery_status="$(cat /sys/class/power_supply/BAT1/status) $capacity%"
 
 # Currently playing Song
-np="$(playerctl -p spotifyd metadata xesam:artist) – $(playerctl -p spotifyd metadata xesam:title)"
+np="$(playerctl -p spotify metadata xesam:artist) – $(playerctl -p spotify metadata xesam:title)"
 
 battery="🔋"
-if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Not charging" ]]; then
-  battery_status="Discharging $capacity%"
-fi
+
 if (( capacity < 11 )); then
   battery="🪫"
   battery_status="Battery low! $capacity%"
 fi
+
+if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Discharging" && "$(cat /sys/class/power_supply/BAT1/status)" == "Not charging" ]]; then
+  battery="🔋"
+  battery_status="Discharging $capacity%"
+fi
+
 if [[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ]]; then
   battery="🗲"
-  battery_status="$(cat /sys/class/power_supply/BAT0/status) $capacity%"
+  battery_status="Charging $capacity%"
 fi
 if [[ "$(cat /sys/class/power_supply/BAT1/status)" == "Charging" ]]; then
   battery="🗲"

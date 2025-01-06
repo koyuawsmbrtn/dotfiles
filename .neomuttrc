@@ -24,7 +24,7 @@ set sidebar_visible
 set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 
-mailboxes =INBOX =Done =TBD =Sent\ Mail =Wichtig =Junk =Trash
+mailboxes =INBOX =Archive =Sent\ Mail =Wichtig =Junk =Trash
 
 # Vim like binds
 bind attach,index,pager \CD next-page

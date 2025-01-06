@@ -1,0 +1,13 @@
+profile dock {
+    output eDP-1 disable
+    output DP-1 enable
+}
+
+profile external {
+    output eDP-1 disable
+    output HDMI-A-2 enable
+}
+
+profile laptop {
+    output eDP-1 enable
+}
