@@ -227,7 +227,7 @@ bindsym $mod+e exec gnome-terminal -e neomutt --name "neomutt" # launch e-mail c
 bindsym $mod+g exec gnome-terminal -e amfora --name "amfora" # launch amfora (mod+g)
 bindsym $mod+shift+a exec gnome-terminal -e ani-cli --name "ani-cli" # launch ani-cli (mod+shift+a)
 bindsym $mod+c exec gnome-terminal -e gomuks --name "gomuks" # launch element ($mod+c)
-bindsym $mod+shift+v exec discord # launch discord (mod+shift+v)
+bindsym $mod+shift+v exec ripcord # launch ripcord (mod+shift+v)
 bindsym $mod+shift+n exec notion-app # launch notion (mod+shift+n)
 bindsym $mod+t exec telegram-desktop # launch telegram (mod+t)
 bindsym ctrl+alt+delete exec gnome-terminal -e btop --name "System resources" # launch btop
