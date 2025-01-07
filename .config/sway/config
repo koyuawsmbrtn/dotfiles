@@ -220,7 +220,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # app launchers
 bindsym $mod+b exec zen-browser # launch zen browser (mod+b)
-bindsym $mod+m exec spotify # launch spotify (mod+m)
+bindsym $mod+m exec gnome-terminal -e spotify-client --name "Spotify" # launch spotify (mod+m)
 bindsym $mod+n exec gnome-terminal -e nmtui --name "Network configuration" # launch networkmanager config tool (mod+n)
 bindsym $mod+a exec gnome-terminal -e alsamixer --name "Audio mixer" # launch alsa mixer (mod+a)
 bindsym $mod+e exec gnome-terminal -e neomutt --name "neomutt" # launch e-mail clent (mod+e)
