@@ -210,8 +210,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # brightness control
-bindsym XF86MonBrightnessUp   exec "light -A 10 && light -O"
-bindsym XF86MonBrightnessDown exec "light -U 10 && light -O"
+bindsym XF86MonBrightnessUp   exec "sudo light -A 10 && sudo light -O"
+bindsym XF86MonBrightnessDown exec "sudo light -U 10 && sudo light -O"
 
 # media control
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -234,6 +234,7 @@ bindsym ctrl+alt+delete exec gnome-terminal -e btop --name "System resources" # 
 bindsym $mod+shift+b exec gnome-terminal -e tuisky --name "Bluesky" # launch the tuisky bluesky client
 
 # autostart
+exec sudo light -I
 exec sh -c "kanshi --config /home/koyu/.config/kanshi/config &!"
 exec mullvad-vpn
 exec telegram-desktop -startintray
@@ -249,6 +250,10 @@ exec swayidle -w \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock-fancy'
+
+# but disable swayidle on fullscreen
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
 
 # bar
 bar {
