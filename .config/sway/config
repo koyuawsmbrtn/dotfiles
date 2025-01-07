@@ -235,12 +235,13 @@ bindsym $mod+shift+b exec gnome-terminal -e tuisky --name "Bluesky" # launch the
 
 # autostart
 exec sudo light -I
-exec sh -c "kanshi --config /home/koyu/.config/kanshi/config &!"
+exec sh -c "kanshi --config ~/.config/kanshi/config &!"
 exec mullvad-vpn
 exec telegram-desktop -startintray
 exec signal-desktop --start-in-tray
 exec sh -c "rclone mount cloud: ~/cloud --daemon"
 exec /usr/lib/xfce-polkit/xfce-polkit
+exec sh -c "cd ~/lavaconfig && python3 toggle.py"
 
 # notifications
 exec swaync
@@ -285,3 +286,6 @@ bindsym $mod+shift+s exec grim -g "$(slurp -d)" - | wl-copy
 
 # toggle tabbed
 bindsym $mod+shift+t layout toggle split tabbed
+
+# toggle dock
+bindsym $mod+shift+d exec sh -c "cd ~/lavaconfig && python3 toggle.py"
