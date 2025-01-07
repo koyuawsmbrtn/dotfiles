@@ -240,6 +240,7 @@ exec mullvad-vpn
 exec telegram-desktop -startintray
 exec signal-desktop --start-in-tray
 exec sh -c "rclone mount cloud: ~/cloud --daemon"
+exec /usr/lib/xfce-polkit/xfce-polkit
 
 # notifications
 exec swaync
