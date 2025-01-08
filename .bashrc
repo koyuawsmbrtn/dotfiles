@@ -17,6 +17,8 @@ export EDITOR=nano
 # aliases
 alias resource="source ~/.bashrc"
 alias cls="tput reset"
+alias dm="udisksctl mount -b"
+alias dum="udisksctl unmount -b"
 
 # fuck
 eval "$(thefuck --alias)"
@@ -29,3 +31,7 @@ alias ls="ls --group-directories-first --color"
 
 # vi
 alias vi=vim
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
