@@ -1,4 +1,4 @@
 #!/bin/bash
-spotifyd $(cat /etc/spotifyd-config)
-spt
+spotifyd
+spotify_player
 killall spotifyd
