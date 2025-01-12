@@ -80,6 +80,21 @@ if [[ "$capacity" == "100" ]]; then
   battery_status="Full $capacity%"
 fi
 
+volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | tr -d %)
+
+if (( volume < 25 )); then
+  volumee="🔈"
+fi
+if (( volume > 30 )); then
+  volumee="🔉"
+fi
+if (( volume > 80 )); then
+  volumee="🔉"
+fi
+if amixer sget Master | awk -F"[][]" '/Left:/ { print $4 }' | grep -q off; then
+  volumee="🔇"
+fi
+
 # Emojis and characters for the status bar
 # 💎 💻 💡 🔌 ⚡ 📁 \|
-echo "Hi, $USER! | 🎵 $np | $battery $battery_status | $date_formatted | "
+echo "Hi, $USER! | 🎵 $np | $volumee $volume% | $battery $battery_status | $date_formatted | "
