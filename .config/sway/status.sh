@@ -82,7 +82,7 @@ fi
 
 volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master) | tr -d %)
 
-if (( volume < 25 )); then
+if (( volume < 30 )); then
   volumee="🔈"
 fi
 if (( volume > 30 )); then
