@@ -226,10 +226,9 @@ bindsym $mod+a exec gnome-terminal -e alsamixer --name "Audio mixer" # launch al
 bindsym $mod+e exec gnome-terminal -e neomutt --name "neomutt" # launch e-mail clent (mod+e)
 bindsym $mod+g exec gnome-terminal -e amfora --name "amfora" # launch amfora (mod+g)
 bindsym $mod+shift+a exec gnome-terminal -e ani-cli --name "ani-cli" # launch ani-cli (mod+shift+a)
-bindsym $mod+c exec gnome-terminal -e gomuks --name "gomuks" # launch element ($mod+c)
-bindsym $mod+shift+v exec env LD_PRELOAD=/usr/lib/ripcord/hook.so ripcord # launch ripcord (mod+shift+v)
+bindsym $mod+c exec element-desktop # launch element ($mod+c)
+bindsym $mod+shift+v exec discord # launch discord (mod+shift+v)
 bindsym ctrl+alt+delete exec gnome-terminal -e btop --name "System resources" # launch btop
-bindsym $mod+shift+b exec gnome-terminal -e tuisky --name "Bluesky" # launch the tuisky bluesky client
 
 # autostart
 exec sudo light -I
@@ -240,6 +239,7 @@ exec signal-desktop --start-in-tray
 exec sh -c "rclone mount cloud: ~/cloud --daemon"
 exec /usr/lib/xfce-polkit/xfce-polkit
 exec sh -c "cd ~/lavaconfig && python3 toggle.py"
+exec element-desktop --hidden
 
 # notifications
 exec swaync
