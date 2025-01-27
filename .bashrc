@@ -35,3 +35,6 @@ alias vi=vim
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# always start at ~ no matter what
+cd ~
