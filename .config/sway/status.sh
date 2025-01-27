@@ -45,7 +45,7 @@ if (( batteries > 1 )); then
 fi
 
 # Currently playing Song
-np="$(playerctl -p spotifyd metadata xesam:artist) – $(playerctl -p spotifyd metadata xesam:title)"
+np="$(playerctl metadata xesam:artist) – $(playerctl metadata xesam:title)"
 
 battery=$(repeatString '🔋' $batteries)
 
