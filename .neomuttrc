@@ -5,7 +5,7 @@ set imap_pass="supersecret"
 
 set folder=imaps://imap.mailbox.org/
 set spoolfile=+INBOX
-set record="+Sent Mail"
+set record="+Sent"
 
 # https://www.neomutt.org/guide/reference search sleep_time for additional info
 set sleep_time=0 # be faster
@@ -24,7 +24,7 @@ set sidebar_visible
 set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 
-mailboxes =INBOX =Archive =Sent\ Mail =Wichtig =Junk =Trash
+mailboxes =INBOX =Archive =Sent =Wichtig =Junk =Trash
 
 # Vim like binds
 bind attach,index,pager \CD next-page
