@@ -11,7 +11,7 @@ set record="+Sent"
 set sleep_time=0 # be faster
 set beep=no # no beep sound
 set editor="nano"
-auto_view text/html
+auto_view text/plain
 set sort=reverse-date   # default sorting by date
 # When sorting by threads, this variable controls how threads are sorted
 # in relation to other threads, and how the branches of the thread trees are sorted.
