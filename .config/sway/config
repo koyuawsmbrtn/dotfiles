@@ -229,7 +229,6 @@ bindsym $mod+shift+a exec gnome-terminal -e ani-cli --name "ani-cli" # launch an
 bindsym $mod+c exec element-desktop # launch element ($mod+c)
 bindsym $mod+shift+v exec discord # launch discord (mod+shift+v)
 bindsym ctrl+alt+delete exec gnome-terminal -e btop --name "System resources" # launch btop
-bindsym $mod+shift+c exec google-chrome-stable --app="https://copilot.microsoft.com/?dpwa=1"
 
 # autostart
 exec sudo light -I
