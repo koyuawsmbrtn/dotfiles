@@ -7,7 +7,7 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Your preferred terminal emulator
-set $term gnome-terminal
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -219,16 +219,14 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # app launchers
-bindsym $mod+b exec zen-browser # launch zen browser (mod+b)
-bindsym $mod+m exec gnome-terminal -e spotify_player --name "Spotify" # launch spotify (mod+m)
-bindsym $mod+n exec gnome-terminal -e nmtui --name "Network configuration" # launch networkmanager config tool (mod+n)
-bindsym $mod+a exec gnome-terminal -e alsamixer --name "Audio mixer" # launch alsa mixer (mod+a)
-bindsym $mod+e exec gnome-terminal -e neomutt --name "neomutt" # launch e-mail clent (mod+e)
-bindsym $mod+g exec gnome-terminal -e amfora --name "amfora" # launch amfora (mod+g)
-bindsym $mod+shift+a exec gnome-terminal -e ani-cli --name "ani-cli" # launch ani-cli (mod+shift+a)
-bindsym $mod+c exec element-desktop # launch element ($mod+c)
-bindsym $mod+shift+v exec discord # launch discord (mod+shift+v)
-bindsym ctrl+alt+delete exec gnome-terminal -e btop --name "System resources" # launch btop
+bindsym $mod+b exec zen-browser
+bindsym $mod+m exec kitty -e spotify_player
+bindsym $mod+n exec kitty -e nmtui
+bindsym $mod+a exec kitty -e alsamixer
+bindsym $mod+g exec kitty -e amfora
+bindsym $mod+shift+a exec kitty -e ani-cli
+bindsym $mod+shift+v exec ripcord
+bindsym ctrl+alt+delete exec kitty -e btop
 
 # autostart
 exec sudo light -I
@@ -239,7 +237,6 @@ exec signal-desktop --start-in-tray
 exec sh -c "rclone mount cloud: ~/cloud --daemon"
 exec /usr/lib/xfce-polkit/xfce-polkit
 exec sh -c "cd ~/lavaconfig && python3 toggle.py"
-exec element-desktop --hidden
 
 # notifications
 exec swaync
