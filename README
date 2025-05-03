@@ -3,4 +3,3 @@ sway, neomutt, custom scripts and more
 currently running on my thinkpad x260 with dual-batteries
 
 includes the ripcord hook
-since spotifyd is broken please build this pr from source unti it's merged https://github.com/Spotifyd/spotifyd/pull/1321
