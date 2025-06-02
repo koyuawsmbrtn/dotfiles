@@ -225,8 +225,9 @@ bindsym $mod+n exec kitty -e nmtui
 bindsym $mod+a exec kitty -e alsamixer
 bindsym $mod+g exec kitty -e amfora
 bindsym $mod+shift+a exec kitty -e ani-cli
-bindsym $mod+shift+v exec ripcord
+bindsym $mod+shift+v exec equibop
 bindsym ctrl+alt+delete exec kitty -e btop
+bindsym $mod+p exec passes
 
 # autostart
 exec sudo light -I
@@ -261,7 +262,7 @@ bar {
     colors {
         statusline #000000
         background #fbbd1a
-        inactive_workspace #fbbd1a00 #fbbd1a00 #5c5c5c
+        inactive_workspace #fbbd1a #fbbd1a #5c5c5c
     }
 
     font pango:DejaVu Sans Mono 10
@@ -290,3 +291,6 @@ bindsym $mod+shift+n exec swaync-client -t
 
 # toggle touchpad
 bindsym $mod+t input type:touchpad events toggle enabled disabled
+
+# smile
+bindsym $mod+s exec smile
