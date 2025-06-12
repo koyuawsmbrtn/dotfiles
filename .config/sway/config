@@ -228,6 +228,7 @@ bindsym $mod+shift+a exec kitty -e ani-cli
 bindsym $mod+shift+v exec equibop
 bindsym ctrl+alt+delete exec kitty -e btop
 bindsym $mod+p exec passes
+bindsym $mod+shift+f exec kitty -e nnn
 
 # autostart
 exec sudo light -I
