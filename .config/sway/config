@@ -264,6 +264,7 @@ bar {
         statusline #000000
         background #fbbd1a
         inactive_workspace #fbbd1a #fbbd1a #5c5c5c
+        focused_workspace #000000 #000000 #fbbd1a
     }
 
     font pango:DejaVu Sans Mono 10
