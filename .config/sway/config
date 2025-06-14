@@ -11,7 +11,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run -i --tb='#fbbd1a' --tf='#000000' --fb='#fbbd1a' --nb='#fbbd1a' --nf='#000000' --hb='#000000' --hf='#fbbd1a' --fb='#fbbd1a' -p '' -H 23
+set $menu bemenu-run -i --tb='#000000' --tf='#fbbd1a' --fb='#000000' --nb='#fbbd1a' --nf='#000000' --hb='#fbbd1a' --hf='#000000' -p '' -H 23
 
 ### Output configuration
 #
