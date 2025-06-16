@@ -1,6 +1,26 @@
 profile dock {
     output eDP-1 disable
-    output DP-1 enable
+    output DP-1 enable mode 1920x1080@75Hz
+}
+profile dock {
+    output eDP-1 disable
+    output DP-2 enable mode 1920x1080@75Hz
+}
+profile dock {
+    output eDP-1 disable
+    output DP-3 enable mode 1920x1080@75Hz
+}
+profile dock {
+    output eDP-1 disable
+    output DP-4 enable mode 1920x1080@75Hz
+}
+profile dock {
+    output eDP-1 disable
+    output DP-5 enable mode 1920x1080@75Hz
+}
+profile dock {
+    output eDP-1 disable
+    output DP-6 enable mode 1920x1080@75Hz
 }
 
 profile external {
