@@ -1,0 +1,119 @@
+* {
+    font: "JetBrains Mono Nerd Font 12";
+    background:     #000000;
+    foreground:     #fbbd1a;
+    separatorcolor: #333333;
+
+    selected-normal-foreground: #000000;
+    selected-normal-background: #fbbd1a;
+
+    active-foreground: #fbbd1a;
+    active-background: #000000;
+    urgent-foreground: #fbbd1a;
+    urgent-background: #000000;
+
+    padding: 6;
+    margin: 0;
+    radius: 8;
+}
+
+window {
+    background-color: transparent;
+    text-color: @foreground;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+mainbox {
+    children: [inputbar, listview];
+    spacing: 10;
+    background-color: @background;
+    text-color: @foreground;
+    margin: 0;
+    padding: 10;
+    border: 0;
+}
+
+inputbar {
+    background-color: #fbbd1a;
+    text-color: #000000;
+    padding: 10;
+    margin: 0 0 10 0;
+    border: 0;
+}
+
+prompt {
+    background-color: #fbbd1a;
+    text-color: #000000;
+    padding: 6;
+    border: 0;
+    enabled: false;
+}
+
+entry {
+    background-color: #fbbd1a;
+    text-color: #000000;
+    padding: 6;
+    border: 0;
+}
+
+listview {
+    lines: 10;
+    fixed-height: true;
+    background-color: @background;
+    text-color: @foreground;
+    spacing: 6;
+    scrollbar: true;
+    border: 0;
+}
+
+element {
+    padding: 6 10;
+    background-color: @background;
+    text-color: @foreground;
+    border: 0;
+    border-radius: 0;
+}
+
+element selected {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+    border: 0;
+}
+
+element normal {
+    background-color: @background;
+    text-color: @foreground;
+    border: 0;
+}
+
+element-text {
+    text-color: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    background-color: transparent;
+}
+
+scrollbar {
+    width: 6;
+    handle-color: #fbbd1a;
+    handle-width: 4;
+    background-color: @background;
+}
+
+message {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+textbox {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+case-indicator {
+    background-color: @foreground;
+    text-color: @background;
+}

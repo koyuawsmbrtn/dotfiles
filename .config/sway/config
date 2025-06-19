@@ -11,7 +11,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run -i --tb='#000000' --tf='#fbbd1a' --fb='#000000' --nb='#fbbd1a' --nf='#000000' --hb='#fbbd1a' --hf='#000000' -p '' -H 23
+# set $menu bemenu-run -i --tb='#000000' --tf='#fbbd1a' --fb='#000000' --nb='#fbbd1a' --nf='#000000' --hb='#fbbd1a' --hf='#000000' -p '' -H 23
+set $menu rofi -show combi -combi-modes "window,run" -modes combi -theme ~/.config/rofi/theme.rasi
 
 ### Output configuration
 #
@@ -239,6 +240,7 @@ exec signal-desktop --start-in-tray
 exec sh -c "rclone mount cloud: ~/cloud --daemon"
 exec /usr/lib/xfce-polkit/xfce-polkit
 exec sh -c "cd ~/lavaconfig && python3 toggle.py"
+exec solaar -w hide
 
 # notifications
 exec swaync
@@ -294,5 +296,8 @@ bindsym $mod+shift+n exec swaync-client -t
 # toggle touchpad
 bindsym $mod+t input type:touchpad events toggle enabled disabled
 
-# smile
-bindsym $mod+s exec smile
+# toggle wayside
+bindsym $mod+s exec python ~/.config/wayside/toggle.py
+
+# fix smile
+for_window [app_id="smile"] floating enable
