@@ -3,7 +3,7 @@
 set imap_user="me@koyu.space"
 set imap_pass="supersecret"
 
-set folder=imaps://imap.mailbox.org/
+set folder=imaps://mail.koyu.space/
 set spoolfile=+INBOX
 set record="+Sent"
 
