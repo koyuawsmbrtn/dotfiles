@@ -43,7 +43,7 @@ bind index,pager \CB sidebar-toggle-visible       # Ctrl-b to toggle visibility 
 set realname="Leonie Ain"
 set from="me@koyu.space"
 
-set smtp_url="smtps://me@koyu.space@smtp.mailbox.org:465/"
+set smtp_url="smtps://me@koyu.space@mail.koyu.space:465/"
 set smtp_pass="supersecret"
 set smtp_authenticators="gssapi:login"
 
